@@ -6,6 +6,8 @@ DSH（DeepSeek Harness）的输出呈现设置插件。把「过程节点怎么�
 
 配置入口：**插件 → dsh-output-setting**（插件自己的详情页，不是「设置」里的独立分组）。
 
+![配置界面（简体中文）](assets/config-zh.png)
+
 ## 配置项
 
 | 分组 | 配置 | 类型 | 默认 | 说明 |

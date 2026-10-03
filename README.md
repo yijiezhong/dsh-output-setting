@@ -6,6 +6,8 @@ An output-presentation settings plugin for DSH (DeepSeek Harness). It gathers "h
 
 Where to configure: **Plugins → dsh-output-setting** (the plugin's own detail page, not a separate group inside Settings).
 
+![Settings page (English)](assets/config-en.png)
+
 ## Settings
 
 | Group | Setting | Type | Default | Description |
