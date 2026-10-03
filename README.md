@@ -33,21 +33,34 @@ Or use the plugin manager directly:
 plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
 ```
 
-### ⚠️ Dependency: ship your own `@deepseek-ai/schemastery@3.18.4`
+### Dependencies
 
 ```sh
-cd /path/to/dsh-output-setting
-npm install @deepseek-ai/schemastery@3.18.4 --no-save
+npm install          # installs the @deepseek-ai/schemastery declared in package.json
 ```
 
-**Why**: on this machine the profile shared layer (`~/.dsh/profiles/node_modules`) holds the old
-**3.18.1**, which has **no `.volatile()`**. Desktop does not pass `bareModuleBaseUrl`, so bare
-specifiers resolve through plain Node resolution — without a local copy the plugin hits the old
-version → `z.number().volatile is not a function` → **module load fails → Config is missing →
-the settings page never appears** (`listConfigs` reports `status: "absent"`, yet `fiberPhase`
-still says `active`, which makes it very easy to misdiagnose).
+`package.json` declares exactly one dependency:
 
-**Do not** put schemastery into `peerDependencies` — that intercepts it back to the shared old copy.
+```json
+"dependencies": { "@deepseek-ai/schemastery": "~3.18.4" }
+```
+
+**Why pinned to 3.18.x**: on this machine the profile shared layer
+(`~/.dsh/profiles/node_modules`) holds the old **3.18.1**, which has **no `.volatile()`**.
+Desktop does not pass `bareModuleBaseUrl`, so bare specifiers resolve through plain Node
+resolution — without a local copy the plugin hits the old version →
+`z.number().volatile is not a function` → **module load fails → Config is missing → the
+settings page never appears** (`listConfigs` reports `status: "absent"`, yet `fiberPhase`
+still says `active`, which makes it very easy to misdiagnose). So it must ship its own 3.18.4.
+
+**⚠️ Do not move it into `peerDependencies`** — as a peer it gets intercepted back to the
+shared old 3.18.1 and the failure above returns. (This does not contradict official plugins:
+they also keep schemastery in `dependencies` and only put `@deepseek-ai/cordis` in peer.)
+
+`react` and `cordis` are **not declared** — the DSH runtime provides them (official client
+plugins likewise only `require("react")` without listing it; official plugins were measured at
+0 `import cordis` sites). `peerDependencies.cordis` was tried once and made npm pull a redundant
+308K cordis copy into the plugin, so it was removed.
 
 ## Development notes
 

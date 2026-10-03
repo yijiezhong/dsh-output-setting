@@ -33,20 +33,31 @@ node -e "const f='package.json',j=require('./'+f);j.dsh.profile.bundles.push('ds
 plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
 ```
 
-### ⚠️ 依赖：必须自带 `@deepseek-ai/schemastery@3.18.4`
+### 依赖说明
 
 ```sh
-cd /path/to/dsh-output-setting
-npm install @deepseek-ai/schemastery@3.18.4 --no-save
+npm install          # 装上 package.json 里声明的 @deepseek-ai/schemastery
 ```
 
-**为什么**：本机 profile 共享层（`~/.dsh/profiles/node_modules`）里那份是旧版 **3.18.1**，
-**没有 `.volatile()`**；而 Desktop 未传 `bareModuleBaseUrl`，裸模块名走 Node 原生解析，
+`package.json` 只声明一个依赖：
+
+```json
+"dependencies": { "@deepseek-ai/schemastery": "~3.18.4" }
+```
+
+**为什么是精确到 3.18.x**：本机 profile 共享层（`~/.dsh/profiles/node_modules`）里那份是旧版
+**3.18.1**，**没有 `.volatile()`**；而 Desktop 未传 `bareModuleBaseUrl`，裸模块名走 Node 原生解析，
 插件不自己带新版就会命中旧版 → `z.number().volatile is not a function` →
 **模块加载失败 → Config 缺失 → 配置页不出现**（`listConfigs` 报 `status: "absent"`，
-但 `fiberPhase` 仍显示 `active`，极易误判）。
+但 `fiberPhase` 仍显示 `active`，极易误判）。所以必须自带一份 3.18.4。
 
-**也不要**把 schemastery 写进 `peerDependencies` —— 写了会被 peer 拦截重新导向共享层的旧版。
+**⚠️ 不要把它改成 `peerDependencies`** —— 声明成 peer 会被 DSH 的拦截机制重新导向共享层的
+旧版 3.18.1，上面那个失败就会复现。（这条与官方插件不冲突：官方把 schemastery 放在
+`dependencies`，只把 `@deepseek-ai/cordis` 放 peer。）
+
+`react` 与 `cordis` **都不声明** —— 它们由 DSH 运行时提供（官方客户端插件同样只 `require("react")`
+而不在清单里声明；也实测过官方插件 0 处 `import cordis`）。曾经加过 `peerDependencies.cordis`，
+结果 npm 会自动在本插件里装一份 308K 的 cordis，属于冗余，已移除。
 
 ## 开发须知
 
