@@ -22,13 +22,15 @@ DSH（DeepSeek Harness）的输出呈现设置插件。把「过程节点怎么�
 
 ## 安装
 
+已发布到 npm：[`dsh-output-setting`](https://www.npmjs.com/package/dsh-output-setting)。
+
 推荐用插件管理器，三种来源任选：
 
 ```
 # ① 从 GitHub 安装（无需先发布 npm）
 plugin_manager(install_bundle, "github:yijiezhong/dsh-output-setting")
 
-# ② 从 npm 安装（发布后可用）
+# ② 从 npm 安装（已发布）
 plugin_manager(install_bundle, "dsh-output-setting")
 
 # ③ 本地开发：直接 link 源码目录

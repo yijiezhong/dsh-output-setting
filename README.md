@@ -22,13 +22,15 @@ Where to configure: **Plugins → dsh-output-setting** (the plugin's own detail 
 
 ## Install
 
+Published on npm as [`dsh-output-setting`](https://www.npmjs.com/package/dsh-output-setting).
+
 Use the plugin manager; three sources work:
 
 ```
 # 1. From GitHub (no npm publish needed)
 plugin_manager(install_bundle, "github:yijiezhong/dsh-output-setting")
 
-# 2. From npm (once published)
+# 2. From npm (published)
 plugin_manager(install_bundle, "dsh-output-setting")
 
 # 3. Local development: link the source directory
