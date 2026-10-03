@@ -34,8 +34,13 @@
 3. **DSH 0.2.0-rc.2 没有内置插件市场** —— 插件通过 pnpm spec 分发
    （`link:` / `file:` / `github:` / `https:` / npm 包名）。因此"提交插件市场"= 让包能被
    GitHub 或 npm 安装。
-4. **本机当前无法访问 GitHub**（`git ls-remote` 与 `curl` 均超时），
-   线上安装路径（`github:`）**尚未实测**，只验证了 `link:`。
+4. **GitHub 侧已打通（2026-10-03 补测）**。当时 `github.com` 主站一度超时，已通过
+   GitHub **Git Data API**（走可达的 `api.github.com`）完成首次推送，随后主站恢复，
+   改用常规 `git push --force` 对齐，**本地与远端 HEAD 现已完全相同**。
+   `github:` 安装已实测：`pnpm add github:yijiezhong/dsh-output-setting` 成功，
+   装下来的正是 `files` 白名单那 7 个文件（无 `.git` / `bin/` / `node_modules`）。
+   **注意**：按既有约定，`github` remote 的 push 用哨兵 `disabled://github-push-disabled`
+   默认禁用；需要推送时临时放开、推完立刻恢复（见 `bin/pushall.sh` 顶部注释）。
 
 ## 四、发布前检查清单
 
@@ -48,8 +53,11 @@
 | 依赖声明正确（schemastery 在 `dependencies`） | ✅ |
 | NAS 远端（`origin`）与 GitHub remote（`github`，push 按约定禁用） | ✅ |
 | `git pushall` 可用（跳过被禁用远程并核对各远程 HEAD） | ✅ |
-| **GitHub 仓库已创建且公开** | ⬜ 待网络可达时操作 |
+| **GitHub 仓库已创建且公开**、内容已推送、SHA 与本地对齐 | ✅ |
+| **`github:` 安装已实测**（pnpm 拉取内容符合白名单） | ✅ |
 | **npm 发布**（可选；不发也能用 `github:` 安装） | ⬜ 可选 |
+
+> GitHub：<https://github.com/yijiezhong/dsh-output-setting>（public，默认分支 `master`）
 
 ## 五、复现测试的方法
 
