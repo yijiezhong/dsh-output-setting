@@ -10,13 +10,13 @@ Where to configure: **Plugins → dsh-output-setting** (the plugin's own detail 
 
 ## Settings
 
-| Group | Setting | Type | Default | Description |
-| --- | --- | --- | --- | --- |
-| Process nodes | Auto-expand reasoning | switch | on | New reasoning blocks show their full content |
-| Process nodes | Auto-expand tool calls | switch | on | Command and other tool cards show input and output |
-| Code blocks | Code font size | slider 1–3 | 1.4× | Font scale for code blocks and inline code (1 = DSH default, 11px) |
-| Code blocks | Code line height | slider 1–2.5 | 1.6× | Line height = font size × this ratio |
-| Output language | Model output language | select | Automatic | `Automatic` (follow UI language) / `简体中文` / `English` |
+| Group           | Setting                | Type         | Default   | Description                                                        |
+| --------------- | ---------------------- | ------------ | --------- | ------------------------------------------------------------------ |
+| Process nodes   | Auto-expand reasoning  | switch       | on        | New reasoning blocks show their full content                       |
+| Process nodes   | Auto-expand tool calls | switch       | on        | Command and other tool cards show input and output                 |
+| Code blocks     | Code font size         | slider 1–3   | 1.4×      | Font scale for code blocks and inline code (1 = DSH default, 11px) |
+| Code blocks     | Code line height       | slider 1–2.5 | 1.6×      | Line height = font size × this ratio                               |
+| Output language | Model output language  | select       | Automatic | `Automatic` (follow UI language) / `简体中文` / `English`              |
 
 "Model output language" is written into the **system prompt** (not AGENTS.md), so it also constrains the hidden **reasoning/thinking channel** — AGENTS.md arrives as a user message and cannot reach that channel.
 
@@ -89,11 +89,6 @@ plugins likewise only `require("react")` without listing it; official plugins we
   when testing localization.
 - The settings UI registers into **`plugins.bundle.config`** (a keyed slot, key = this package name)
   and renders between the plugin page's description and its component rows.
-
-## See also
-
-- `STATUS.md` (in the `dsh-testhud` repo) documents every DSH pitfall this plugin ran into, plus
-  how to verify each of them.
 
 ## License
 

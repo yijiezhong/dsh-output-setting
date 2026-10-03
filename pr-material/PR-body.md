@@ -32,7 +32,7 @@ Installed and exercised on **DSH Desktop 0.2.0-rc.2** while linked as a local bu
 - `listConfigs` reports `status: "schema"` with all six fields declared `volatile`
 - every setting applies **live** — verified by editing the profile config directly and
   observing the UI change within seconds, without a page refresh or restart
-- `npm pack` ships exactly the 7 whitelisted files; `npm publish --dry-run` passes
+- `npm pack` ships exactly the 9 whitelisted files (sources, both READMEs, LICENSE, and two screenshots); `npm publish --dry-run` passes
 
-The full acceptance report (9 cases, known limitations, reproduction steps) is in
-[`ACCEPTANCE.md`](https://github.com/yijiezhong/dsh-output-setting/blob/master/ACCEPTANCE.md).
+See the repo's README for the settings table and the configuration-page screenshots
+(installed via `dsh plugin add`, then **Plugins → dsh-output-setting**).
