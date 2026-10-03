@@ -20,18 +20,32 @@ Where to configure: **Plugins → dsh-output-setting** (the plugin's own detail 
 
 ## Install
 
+Use the plugin manager; three sources work:
+
+```
+# 1. From GitHub (no npm publish needed)
+plugin_manager(install_bundle, "github:yijiezhong/dsh-output-setting")
+
+# 2. From npm (once published)
+plugin_manager(install_bundle, "dsh-output-setting")
+
+# 3. Local development: link the source directory
+plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
+```
+
+Make sure `dsh-output-setting` ends up in the profile's `dsh.profile.bundles`
+(the plugin manager does this for you; see below for the manual route).
+
+<details>
+<summary>Manual install</summary>
+
 ```sh
-# add a link: dependency inside your DSH profile
 cd ~/.dsh/profiles/desktop
-pnpm add link:/path/to/dsh-output-setting
+pnpm add github:yijiezhong/dsh-output-setting
 node -e "const f='package.json',j=require('./'+f);j.dsh.profile.bundles.push('dsh-output-setting');require('fs').writeFileSync(f,JSON.stringify(j,null,2)+'\n')"
 ```
 
-Or use the plugin manager directly:
-
-```
-plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
-```
+</details>
 
 ### Dependencies
 

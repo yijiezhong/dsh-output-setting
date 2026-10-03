@@ -1,13 +1,40 @@
 {
   "name": "dsh-output-setting",
   "version": "1.0.0",
-  "private": true,
+  "description": "DSH output settings: auto-expand reasoning/tool nodes, code block font size and line height, and model output language (auto / Chinese / English)",
   "type": "module",
-  "description": "DSH 输出呈现设置：自动展开思考/工具节点 + 代码块字号与行距 + 模型输出语言",
   "main": "host.js",
   "exports": {
     ".": "./host.js",
     "./client": "./client.js"
+  },
+  "files": [
+    "host.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "cordis-plugin",
+    "plugin",
+    "output",
+    "settings",
+    "reasoning",
+    "code-block"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yijiezhong/dsh-output-setting.git"
+  },
+  "homepage": "https://github.com/yijiezhong/dsh-output-setting#readme",
+  "bugs": {
+    "url": "https://github.com/yijiezhong/dsh-output-setting/issues"
   },
   "dsh": {
     "bundle": {

@@ -20,18 +20,32 @@ DSH（DeepSeek Harness）的输出呈现设置插件。把「过程节点怎么�
 
 ## 安装
 
+推荐用插件管理器，三种来源任选：
+
+```
+# ① 从 GitHub 安装（无需先发布 npm）
+plugin_manager(install_bundle, "github:yijiezhong/dsh-output-setting")
+
+# ② 从 npm 安装（发布后可用）
+plugin_manager(install_bundle, "dsh-output-setting")
+
+# ③ 本地开发：直接 link 源码目录
+plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
+```
+
+装完记得把 `dsh-output-setting` 加进 profile 的 `dsh.profile.bundles`
+（插件管理器会自动处理；手工安装时见下方命令）。
+
+<details>
+<summary>手工安装步骤</summary>
+
 ```sh
-# 在 DSH 的 profile 里加一条 link: 依赖
 cd ~/.dsh/profiles/desktop
-pnpm add link:/path/to/dsh-output-setting
+pnpm add github:yijiezhong/dsh-output-setting
 node -e "const f='package.json',j=require('./'+f);j.dsh.profile.bundles.push('dsh-output-setting');require('fs').writeFileSync(f,JSON.stringify(j,null,2)+'\n')"
 ```
 
-或直接用插件管理器：
-
-```
-plugin_manager(install_bundle, "link:/path/to/dsh-output-setting")
-```
+</details>
 
 ### 依赖说明
 
