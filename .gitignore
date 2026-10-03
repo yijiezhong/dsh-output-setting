@@ -1,0 +1,8 @@
+# 依赖目录不入库：安装方式见 README.zh.md
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# 编辑器 / 系统
+.DS_Store
+*.swp

@@ -1,0 +1,20 @@
+{
+  "name": "dsh-output-setting",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DSH 输出呈现设置：自动展开思考/工具节点 + 代码块字号与行距，集中在设置里单独一组",
+  "main": "host.js",
+  "exports": {
+    ".": "./host.js",
+    "./client": "./client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  }
+}

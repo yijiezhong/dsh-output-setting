@@ -1,0 +1,10 @@
+# dsh-output-setting bundle patch —— 往 profile 根组合里插一行宿主插件。
+#
+# 必须包在 `insert:` 里：不带 `insert:` 的 `- id: x` 会被 loader 读成
+# "改一行已存在的配置"，找不到就静默跳过（DSH 自己报 `patch: entry "x" not found`）。
+#
+# 真正干活的是客户端半（client.js）：注入代码字号 CSS + 观察 DOM 自动展开节点
+# + 在「设置」里注册一个「输出设置」分区。宿主半只声明 volatile 配置。
+- insert:
+    - id: dsh-output-setting
+      name: dsh-output-setting
