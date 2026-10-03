@@ -13,14 +13,14 @@
 | 改动 | **1 个文件 / +6 行**（`data/plugins/yijiezhong__dsh-output-setting.yml`） |
 | 文件位置 | [fork 上的文件](https://github.com/yijiezhong/awesome-dsh-plugin/blob/add-dsh-output-setting/data/plugins/yijiezhong__dsh-output-setting.yml) |
 
-**尚未开 PR** —— 等确认后再执行：
+**PR 已开**：<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/6494>
 
-```sh
-gh pr create --repo awesome-dsh-plugin/awesome-dsh-plugin \
-  --head yijiezhong:add-dsh-output-setting \
-  --title "Add yijiezhong/dsh-output-setting (usage)" \
-  --body-file pr-material/PR-body.md
 ```
+PR #6494  OPEN  ·  MERGEABLE  ·  1 文件 +6 −0
+分支 add-dsh-output-setting → main
+```
+
+若需更新条目内容：直接往该分支再提交一次即可，PR 会自动带上新提交。
 
 ## 收录文件内容
 
