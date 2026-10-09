@@ -13,7 +13,13 @@
 | 改动 | **1 个文件 / +6 行**（`data/plugins/yijiezhong__dsh-output-setting.yml`） |
 | 文件位置 | [fork 上的文件](https://github.com/yijiezhong/awesome-dsh-plugin/blob/add-dsh-output-setting/data/plugins/yijiezhong__dsh-output-setting.yml) |
 
-**PR 已开**：<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/6494>
+**PR 已开（重新提交）**：<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/6981>
+
+> ⚠️ 原 PR [#6494](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/6494) 已于
+> 2026-10-09T02:14Z 被 GitHub **自动关闭**（未合并、零评论零评审）——原因是**旧 fork 被删除**，
+> head 分支随之消失，GitHub 便把 PR 标记为 closed。同账号的 dsh-testhud PR #6913 在同一秒被关闭，
+> 属同一次事件。上游 contributing.md 明确写着：*"resubmit; nothing is held against a resubmission"*，
+> 故于 2026-10-09T15:10Z 基于最新 main（`17ae1876`）重新提交，条目内容与首次完全一致。
 
 ```
 PR #6494  OPEN  ·  MERGEABLE  ·  1 文件 +6 −0

@@ -25,6 +25,11 @@ Both halves are declared, so it installs via `dsh plugin add`:
 }
 ```
 
+### Published
+
+Also available on npm as [`dsh-output-setting`](https://www.npmjs.com/package/dsh-output-setting)
+(`dsh plugin add dsh-output-setting`), so the entry's `url` is not the only way in.
+
 ### Verification
 
 Installed and exercised on **DSH Desktop 0.2.0-rc.2** while linked as a local bundle:
